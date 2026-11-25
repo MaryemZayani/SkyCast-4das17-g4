@@ -1,0 +1,50 @@
+<section class="hero">
+  <div class="landscape" aria-hidden="true">
+  </div>
+  <div class="intro">
+    <h1>La météo en temps réel,<br>partout en <span>Tunisie</span>
+    </h1>
+    <p>Consultez les relevés, les prévisions et les alertes météorologiques en toute simplicité.</p>
+    <div class="actions">
+      <a class="button" routerLink="/villes">Consulter la météo →</a>
+      <a class="outline" routerLink="/a-propos">▷ Découvrir la plateforme</a>
+    </div>
+  </div>
+  <article class="weather">
+    <h2>⌖ Tunis</h2>
+    <small>Données de démonstration</small>
+    <div class="weather-body">
+      <div class="condition">
+        <img src="/partly.svg" alt="Partiellement nuageux">
+        <div>
+          <strong>25 °C</strong>
+          <p>Partiellement nuageux</p>
+        </div>
+      </div>
+      <dl>
+        <dt>Humidité</dt>
+        <dd>60 %</dd>
+        <dt>Vent</dt>
+        <dd>18 km/h</dd>
+        <dt>Pression</dt>
+        <dd>1015 hPa</dd>
+      </dl>
+    </div>
+  </article>
+  <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 70Q320 -20 580 38T1050 40T1440 22V90H0Z" fill="#eaf3ff"/>
+  </svg>
+</section>
+<section class="features">
+  @for (f of features; track f[0]) {
+    <a class="panel feature" [routerLink]="f[3]">
+      <i>
+        <img [src]="'/' + f[0] + '.svg'" alt="">
+      </i>
+      <h3>{{ f[1] }}
+      </h3>
+      <p>{{ f[2] }}
+      </p>
+    </a>
+  }
+</section>

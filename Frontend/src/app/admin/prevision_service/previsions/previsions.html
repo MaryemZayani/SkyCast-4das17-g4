@@ -1,0 +1,48 @@
+<section class="content">
+  <small>Mode démonstration</small>
+  <h1>Prévisions</h1>
+  <article class="panel">
+    <div class="actions">
+      <input placeholder="Rechercher..." [(ngModel)]="query">
+      @if (admin) {
+        <input placeholder="Nouvel élément" [(ngModel)]="draft">
+        <button class="button" (click)="add()">Ajouter</button>
+      }
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom / description</th>
+          @if (admin) {
+            <th>Actions</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows; track $index; let i = $index) {
+          @if (row.toLowerCase().includes(query.toLowerCase())) {
+            <tr>
+              <td>
+                @if (editing === i) {
+                  <input [(ngModel)]="draftEdit">
+                } @else {
+                  {{ row }}
+                }
+              </td>
+              @if (admin) {
+                <td>
+                  @if (editing === i) {
+                    <button (click)="save(i)">Enregistrer</button>
+                  } @else {
+                    <button (click)="edit(i)">Modifier</button>
+                  }
+                  <button (click)="remove(i)">Supprimer</button>
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </article>
+</section>

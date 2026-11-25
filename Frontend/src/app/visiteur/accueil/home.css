@@ -1,0 +1,123 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: 5%;
+  min-height: clamp(460px, 62vh, 650px);
+  padding: 4% 7% 115px;
+  background: linear-gradient(105deg, #eaf5ff 5%, #c9e7fc 43%, #159af1 100%);
+}
+
+.landscape {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/tunisie.jpg') right bottom / 88% auto no-repeat;
+  mask-image: linear-gradient(to top, #000 8%, #000 25%, transparent 68%), linear-gradient(to right, transparent 8%, #000 50%);
+  mask-composite: intersect;
+}
+
+.intro {
+  padding-top: 5%;
+}
+
+.intro h1 {
+  font-size: clamp(32px, 3.65vw, 62px);
+  line-height: 1.1;
+  letter-spacing: -1.7px;
+  margin-bottom: 22px;
+}
+
+.intro p {
+  font-size: clamp(17px, 1.55vw, 25px);
+  line-height: 1.5;
+  max-width: 650px;
+}
+
+.weather {
+  align-self: start;
+  background: linear-gradient(120deg, #0879c975, #006ac78c);
+}
+
+.condition {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.condition img {
+  width: clamp(65px, 7vw, 112px);
+}
+
+.wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 65px;
+}
+
+.features {
+  position: relative;
+  margin-top: -12px;
+  padding: 0 6.5% 36px;
+}
+
+.feature {
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #2859a51c;
+}
+
+.feature i {
+  display: inline-grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #e4d9ff;
+  margin-bottom: 12px;
+}
+
+.feature img {
+  width: 36px;
+}
+
+.feature:nth-child(2) i {
+  background: #d0eaff;
+}
+
+.feature:nth-child(3) i {
+  background: #ffdce1;
+}
+
+.feature:nth-child(3) img {
+  filter: hue-rotate(130deg);
+}
+
+.feature h3 {
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: #465578;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1050px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .intro {
+    padding-top: 0;
+  }
+
+}

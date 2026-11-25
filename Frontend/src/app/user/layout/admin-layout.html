@@ -1,0 +1,35 @@
+<div class="admin-shell">
+  <aside>
+    <a class="brand" routerLink="/">
+      <img src="/logo.svg" alt="">Sky<span>Cast</span>
+    </a>
+    <nav>
+      @for (link of links; track link[1]; let i = $index) {
+        @if (!query || link[0].toLowerCase().includes(query.toLowerCase())) {
+          <a [routerLink]="link[1]" routerLinkActive="active">
+            <img [src]="'/' + icons[i] + '.svg'" alt="">{{ link[0] }}
+          </a>
+        }
+      }
+    </nav>
+  </aside>
+  <main>
+    <div class="topbar">
+      <label class="search">
+        <img src="/search.svg" alt="">
+        <input #search (input)="query = search.value" placeholder="Rechercher une rubrique..." aria-label="Rechercher une rubrique">
+      </label>
+      <div class="top-actions">
+        <a class="notification" routerLink="/user/notifications" aria-label="Alertes et notifications">
+          <img src="/bell.svg" alt="">
+          <i>
+          </i>
+        </a>
+        <a class="profile" routerLink="/user/profil">
+          <img src="/user.svg" alt="">Utilisateur</a>
+          <a routerLink="/" class="back">Accueil ↗</a>
+        </div>
+      </div>
+      <router-outlet />
+    </main>
+  </div>

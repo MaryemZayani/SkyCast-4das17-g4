@@ -1,0 +1,47 @@
+.navbar {
+  gap: 12px;
+  padding: 12px 4%;
+  background: linear-gradient(110deg, #f7fbff, #e3f0fd);
+}
+
+.navbar nav {
+  gap: 2px;
+}
+
+.navbar nav a {
+  position: relative;
+  padding: 12px 14px;
+  white-space: nowrap;
+}
+
+.navbar nav a.active::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  background: #0069f4;
+  bottom: -6px;
+  left: 20%;
+  right: 20%;
+  border-radius: 4px;
+}
+
+.navbar .actions {
+  gap: 8px;
+}
+
+.navbar .actions a {
+  padding: 12px 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1250px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .navbar nav {
+    order: 3;
+    flex-wrap: wrap;
+  }
+
+}

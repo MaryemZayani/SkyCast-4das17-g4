@@ -1,0 +1,16 @@
+<header class="navbar">
+  <a class="brand" routerLink="/">
+    <img src="logo.svg" alt="">Sky<span>Cast</span>
+  </a>
+  <nav>
+    @for (link of links; track link[1]) {
+      <a [routerLink]="link[1]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{link[0]}}
+      </a>
+    }
+  </nav>
+  <div class="actions">
+    <a class="outline" routerLink="/user/dashboard">Espace utilisateur</a>
+    <a class="button" routerLink="/admin/dashboard">Espace admin</a>
+  </div>
+</header>
+<router-outlet />
